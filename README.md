@@ -269,4 +269,306 @@ int main() {
     return 0;
 }
 ```
+### 11. How can you determine if a number is an Armstrong number?
+**Code**:
+```c
+// www.codeswithpankaj.com
+#include <stdio.h>
+#include <math.h>
+
+void check_armstrong() {
+    int num, original, remainder, n = 0;
+    int result = 0;
+
+    printf("Enter a number to check if it's an Armstrong number: ");
+    scanf("%d", &num);
+
+    original = num;
+
+    // Find number of digits in num
+    while (original != 0) {
+        original /= 10;
+        ++n;
+    }
+
+    original = num;
+
+    // Compute the sum of the power of individual digits
+    while (original != 0) {
+        remainder = original % 10;
+        result += pow(remainder, n);
+        original /= 10;
+    }
+
+    if (result == num) {
+        printf("%d is an Armstrong number.\n", num);
+    } else {
+        printf("%d is not an Armstrong number.\n", num);
+    }
+}
+
+int main() {
+    check_armstrong();
+    return 0;
+}
+```
+
+### 12. Write a program to check if a number is a palindrome.
+**Code**:
+```c
+// www.codeswithpankaj.com
+#include <stdio.h>
+
+void check_palindrome() {
+    int num, reversed = 0, original, remainder;
+    printf("Enter a number to check if it's a palindrome: ");
+    scanf("%d", &num);
+
+    original = num;
+
+    while (num != 0) {
+        remainder = num % 10;
+        reversed = reversed * 10 + remainder;
+        num /= 10;
+    }
+
+    if (original == reversed) {
+        printf("%d is a palindrome.\n", original);
+    } else {
+        printf("%d is not a palindrome.\n", original);
+    }
+}
+
+int main() {
+    check_palindrome();
+    return 0;
+}
+```
+
+### 13. Write a program to determine if a given character is a vowel or not.
+**Code**:
+```c
+// www.codeswithpankaj.com
+#include <stdio.h>
+
+void check_vowel() {
+    char ch;
+    printf("Enter a character: ");
+    scanf(" %c", &ch);
+
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+        printf("%c is a vowel.\n", ch);
+    } else {
+        printf("%c is not a vowel.\n", ch);
+    }
+}
+
+int main() {
+    check_vowel();
+    return 0;
+}
+```
+
+### 14. How can you find the sum of digits of a number?
+**Code**:
+```c
+// www.codeswithpankaj.com
+#include <stdio.h>
+
+void sum_of_digits() {
+    int num, sum = 0, remainder;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    while (num != 0) {
+        remainder = num % 10;
+        sum += remainder;
+        num /= 10;
+    }
+
+    printf("Sum of digits: %d\n", sum);
+}
+
+int main() {
+    sum_of_digits();
+    return 0;
+}
+```
+
+### 15. Write a program to create a four-function calculator (addition, subtraction, multiplication, division).
+**Code**:
+```c
+// www.codeswithpankaj.com
+#include <stdio.h>
+
+void calculator() {
+    char operator;
+    double num1, num2, result;
+
+    printf("Enter an operator (+, -, *, /): ");
+    scanf(" %c", &operator);
+    printf("Enter two operands: ");
+    scanf("%lf %lf", &num1, &num2);
+
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            printf("Result: %.2lf\n", result);
+            break;
+        case '-':
+            result = num1 - num2;
+            printf("Result: %.2lf\n", result);
+            break;
+        case '*':
+            result = num1 * num2;
+            printf("Result: %.2lf\n", result);
+            break;
+        case '/':
+            if (num2 != 0)
+                result = num1 / num2;
+            else {
+                printf("Division by zero error!\n");
+                return;
+            }
+            printf("Result: %.2lf\n", result);
+            break;
+        default:
+            printf("Invalid operator.\n");
+    }
+}
+
+int main() {
+    calculator();
+    return 0;
+}
+```
+
+### 16. What are nested for loops? Write a program to demonstrate their usage.
+**Explanation**: A nested `for` loop is a loop inside another loop. It's often used to iterate through multidimensional structures like matrices.
+
+**Code**:
+```c
+// www.codeswithpankaj.com
+#include <stdio.h>
+
+void nested_loops() {
+    int i, j;
+    for (i = 1; i <= 3; i++) {
+        for (j = 1; j <= 3; j++) {
+            printf("i = %d, j = %d\n", i, j);
+        }
+    }
+}
+
+int main() {
+    nested_loops();
+    return 0;
+}
+```
+
+### 17. Write a program to create an asterisk graph based on user input.
+**Code**:
+```c
+// www.codeswithpankaj.com
+#include <stdio.h>
+
+void asterisk_graph() {
+    int rows, i, j;
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
+
+    for (i = 1; i <= rows; i++) {
+        for (j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    asterisk_graph();
+    return 0;
+}
+```
+
+### 18. How do you swap two integers without using a third variable?
+**Code**:
+```c
+// www.codeswithpankaj.com
+#include <stdio.h>
+
+void swap_without_third_variable() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+
+    a = a + b;
+    b = a - b;
+    a = a - b;
+
+    printf("After swapping: a = %d, b = %d\n", a, b);
+}
+
+int main() {
+    swap_without_third_variable();
+    return 0;
+}
+```
+
+### 19. Write a program to generate Floyd’s triangle.
+**Code**:
+```c
+// www.codeswithpankaj.com
+#include <stdio.h>
+
+void floyds_triangle() {
+    int n, i, j, num = 1;
+    printf("Enter the number of rows for Floyd's triangle: ");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= i; j++) {
+            printf("%d ", num);
+            num++;
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    floyds_triangle();
+    return 0;
+}
+```
+
+### 20. How can you generate a Fibonacci series up to a given range?
+**Code**:
+```c
+// www.codeswithpankaj.com
+#include <stdio.h>
+
+void fibonacci_series() {
+    int n, t1 = 0, t2 = 1, nextTerm = 0;
+
+    printf("Enter the range for Fibonacci series: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci Series: %d, %d", t1, t2);
+    nextTerm = t1 + t2;
+
+    while (nextTerm <= n) {
+        printf(", %d", nextTerm);
+        t1 = t2;
+        t2 = nextTerm;
+        nextTerm = t1 + t2;
+    }
+    printf("\n");
+}
+
+int main() {
+    fibonacci_series();
+    return 0;
+}
+```
 
